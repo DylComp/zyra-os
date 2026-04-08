@@ -65,13 +65,18 @@ export default function Dashboard() {
                 if (prev.find((m) => m.id === data.id)) return prev;
                 return [...prev, data];
               });
-              fetchFiles();
-              fetchCommits();
             }
           } catch { /* ignore */ }
         }
       }
     }).catch(() => setStatus("error"));
+
+    // Poll files/commits every 3s instead of on every message
+    const poll = setInterval(() => {
+      fetchFiles();
+      fetchCommits();
+    }, 3000);
+    return () => clearInterval(poll);
   }, [fetchFiles, fetchCommits]);
 
   const flatFileCount = countFiles(files);
