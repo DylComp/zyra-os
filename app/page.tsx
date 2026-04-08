@@ -8,7 +8,8 @@ import CodeView from "@/components/CodeView";
 import AgentsView from "@/components/AgentsView";
 import CommitsView from "@/components/CommitsView";
 import LivePulse from "@/components/LivePulse";
-import { DEMO_MESSAGES, DEMO_FILES, DEMO_COMMITS } from "@/lib/demo-data";
+import { DEMO_MESSAGES } from "@/lib/demo-messages";
+import { DEMO_FILES, DEMO_COMMITS } from "@/lib/demo-data";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<TabName>("code");

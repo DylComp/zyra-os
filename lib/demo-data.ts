@@ -1,4 +1,5 @@
-import type { AgentMessage, FileNode, Commit } from "@/types";
+import type { FileNode, Commit } from "@/types";
+export { DEMO_MESSAGES } from "./demo-messages";
 
 const f = (name: string, path: string, lang: string, code: string): FileNode =>
   ({ name, path, type: "file", language: lang, content: code });
@@ -6,9 +7,7 @@ const f = (name: string, path: string, lang: string, code: string): FileNode =>
 const d = (name: string, path: string, children: FileNode[]): FileNode =>
   ({ name, path, type: "directory", children });
 
-// Realistic agent messages that simulate building a blockchain
-const DEMO_MESSAGES: Omit<AgentMessage, "id" | "timestamp">[] = [
-  { agent: "Yami", turn: 1, content: "Decomposing prompt into micro-tasks. Analyzing requirements: block structure, SHA-256 hashing, chain validation, proof-of-work, transactions, digital signatures, P2P networking, CLI." },
+const _placeholder = [
   { agent: "Yami", turn: 2, content: "Created 32 micro-tasks with dependency graph. Routing to agents based on complexity scoring." },
   { agent: "Akira", turn: 3, content: "[claude-opus-4-6] Designing core architecture. Establishing module boundaries: /src/core, /src/crypto, /src/wallet, /src/network, /src/rpc, /src/mempool, /src/mining, /src/storage, /src/cli." },
   { agent: "Akira", turn: 4, content: "Defined TypeScript interfaces — Block, BlockHeader, Transaction, UTXO, Peer, NetworkMessage, WalletState, RPCRequest, MempoolEntry.", codeBlock: { filename: "src/types/block.ts", language: "typescript", code: `export interface BlockHeader {\n  version: number;\n  previousHash: string;\n  merkleRoot: string;\n  timestamp: number;\n  difficulty: number;\n  nonce: number;\n}\n\nexport interface Block {\n  header: BlockHeader;\n  transactions: Transaction[];\n  hash: string;\n  height: number;\n}\n\nexport interface Transaction {\n  id: string;\n  inputs: TransactionInput[];\n  outputs: TransactionOutput[];\n  timestamp: number;\n  fee: number;\n}` } },
@@ -454,4 +453,4 @@ const DEMO_COMMITS: Omit<Commit, "timestamp">[] = [
   c("feat: add line count tracking to README", "46 files, 4,218 lines, 32 tasks, 4 agents", "Yami", ["README.md"]),
 ];
 
-export { DEMO_MESSAGES, DEMO_FILES, DEMO_COMMITS };
+export { DEMO_FILES, DEMO_COMMITS };
