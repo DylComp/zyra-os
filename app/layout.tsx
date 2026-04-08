@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: "ZyraOS",
   description:
     "She builds while you watch. Autonomous agent framework for workflows that take days, not minutes.",
+  icons: {
+    icon: "/zyra.os.jpg",
+    apple: "/zyra.os.jpg",
+  },
 };
 
 export default function RootLayout({
