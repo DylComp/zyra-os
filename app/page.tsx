@@ -26,27 +26,21 @@ export default function Dashboard() {
     setCommits([]);
     setStatus("running");
 
-    // Load files immediately
+    // Load files and commits immediately with fresh timestamps
     setFiles(DEMO_FILES);
+    setCommits(DEMO_COMMITS.map((c, i) => ({
+      ...c,
+      timestamp: new Date(Date.now() - (DEMO_COMMITS.length - i) * 60000).toISOString(),
+    })));
 
-    // Stream messages and commits in with delays
+    // Stream messages in with delays
     let cancelled = false;
     let i = 0;
-    let commitIdx = 0;
     const baseTime = Date.now();
-
-    // Space commits evenly across the message stream
-    const commitInterval = Math.floor(DEMO_MESSAGES.length / (DEMO_COMMITS.length + 1));
 
     function nextMessage() {
       if (cancelled) return;
       if (i >= DEMO_MESSAGES.length) {
-        // Add any remaining commits
-        while (commitIdx < DEMO_COMMITS.length) {
-          const c = DEMO_COMMITS[commitIdx];
-          setCommits((prev) => [...prev, { ...c, timestamp: new Date(Date.now()).toISOString() }]);
-          commitIdx++;
-        }
         setStatus("completed");
         return;
       }
@@ -62,14 +56,6 @@ export default function Dashboard() {
       };
 
       setMessages((prev) => [...prev, msg]);
-
-      // Drop in a commit at regular intervals
-      if (commitIdx < DEMO_COMMITS.length && i > 0 && i % commitInterval === 0) {
-        const c = DEMO_COMMITS[commitIdx];
-        setCommits((prev) => [...prev, { ...c, timestamp: new Date(Date.now()).toISOString() }]);
-        commitIdx++;
-      }
-
       i++;
 
       // Fast delays to feel snappy
