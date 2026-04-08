@@ -5,10 +5,10 @@ import type { AgentMessage } from "@/types";
 import MessageFeed from "./MessageFeed";
 
 const AGENTS = [
-  { name: "Yami", dotColor: "#ff1a1a" },
-  { name: "Akira", dotColor: "#cc0000" },
-  { name: "Rei", dotColor: "#990000" },
-  { name: "Kira", dotColor: "#660000" },
+  { name: "Yami", dotColor: "#a366ff" },
+  { name: "Akira", dotColor: "#7b4fbf" },
+  { name: "Rei", dotColor: "#5b2d99" },
+  { name: "Kira", dotColor: "#3d1a66" },
 ];
 
 interface AgentsViewProps {
@@ -46,7 +46,7 @@ export default function AgentsView({ messages }: AgentsViewProps) {
 
             fontFamily: "var(--font-mono)",
             color: activeAgent === null ? "var(--color-accent)" : "var(--color-secondary)",
-            backgroundColor: activeAgent === null ? "rgba(204, 0, 0, 0.1)" : "transparent",
+            backgroundColor: activeAgent === null ? "rgba(123, 79, 191,0.1)" : "transparent",
             borderBottom: activeAgent === null ? "2px solid var(--color-primary)" : "2px solid transparent",
             whiteSpace: "nowrap",
           }}
@@ -72,7 +72,7 @@ export default function AgentsView({ messages }: AgentsViewProps) {
     
                 fontFamily: "var(--font-mono)",
                 color: isActive ? "var(--color-accent)" : "var(--color-secondary)",
-                backgroundColor: isActive ? "rgba(204, 0, 0, 0.1)" : "transparent",
+                backgroundColor: isActive ? "rgba(123, 79, 191,0.1)" : "transparent",
                 borderBottom: isActive ? "2px solid var(--color-primary)" : "2px solid transparent",
                 whiteSpace: "nowrap",
               }}
@@ -80,7 +80,7 @@ export default function AgentsView({ messages }: AgentsViewProps) {
               <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: agent.dotColor, flexShrink: 0 }} />
               {agent.name}
               {count > 0 && (
-                <span style={{ fontSize: 10, padding: "0 6px", borderRadius: 999, backgroundColor: "rgba(204, 0, 0, 0.15)", color: isActive ? "var(--color-accent)" : "var(--color-secondary)" }}>
+                <span style={{ fontSize: 10, padding: "0 6px", borderRadius: 999, backgroundColor: "rgba(123, 79, 191,0.15)", color: isActive ? "var(--color-accent)" : "var(--color-secondary)" }}>
                   {count}
                 </span>
               )}

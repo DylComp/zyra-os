@@ -20,7 +20,7 @@ export default function Header({ activeTab, onTabChange, counts }: HeaderProps) 
     <header
       className="fixed top-0 left-0 right-0 z-50 h-[48px] flex items-center px-5 border-b"
       style={{
-        background: "rgba(0, 0, 0, 0.85)",
+        background: "rgba(8, 0, 26, 0.85)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
         borderColor: "var(--color-tertiary)",
@@ -34,7 +34,7 @@ export default function Header({ activeTab, onTabChange, counts }: HeaderProps) 
           fontFamily: "var(--font-serif)",
           color: "var(--color-primary)",
           letterSpacing: "0.5px",
-          textShadow: "0 0 16px rgba(204, 0, 0, 0.3)",
+          textShadow: "0 0 16px rgba(123, 79, 191,0.3)",
         }}
       >
         ZyraOS
@@ -52,8 +52,8 @@ export default function Header({ activeTab, onTabChange, counts }: HeaderProps) 
               className="relative flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium rounded transition-base"
               style={{
                 color: isActive ? "var(--color-accent)" : "var(--color-secondary)",
-                backgroundColor: isActive ? "rgba(204, 0, 0, 0.1)" : "transparent",
-                textShadow: isActive ? "0 0 12px rgba(204, 0, 0, 0.4)" : "none",
+                backgroundColor: isActive ? "rgba(123, 79, 191,0.1)" : "transparent",
+                textShadow: isActive ? "0 0 12px rgba(123, 79, 191,0.4)" : "none",
               }}
             >
               <span className="text-[11px] opacity-70">{tab.icon}</span>
@@ -62,7 +62,7 @@ export default function Header({ activeTab, onTabChange, counts }: HeaderProps) 
                 <span
                   className="ml-1 px-1.5 py-0 text-[10px] rounded-full"
                   style={{
-                    backgroundColor: "rgba(204, 0, 0, 0.15)",
+                    backgroundColor: "rgba(123, 79, 191,0.15)",
                     color: isActive ? "var(--color-accent)" : "var(--color-secondary)",
                   }}
                 >
@@ -88,7 +88,7 @@ export default function Header({ activeTab, onTabChange, counts }: HeaderProps) 
           style={{
             fontSize: 16,
             color: "var(--color-primary)",
-            textShadow: "0 0 8px rgba(204, 0, 0, 0.5)",
+            textShadow: "0 0 8px rgba(123, 79, 191,0.5)",
             animation: "flicker 3s infinite",
           }}
           title="Framework"

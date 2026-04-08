@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   description:
     "She builds while you watch. Autonomous agent framework for workflows that take days, not minutes.",
   icons: {
-    icon: "/zyra.os.jpg",
-    apple: "/zyra.os.jpg",
+    icon: "/mascot.png",
+    apple: "/mascot.png",
   },
 };
 

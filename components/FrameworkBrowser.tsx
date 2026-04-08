@@ -49,9 +49,9 @@ export default function FrameworkBrowser() {
               onClick={() => setActiveFile(file.name)}
               className="w-full text-left px-4 py-2 text-[13px] transition-fast border-b md:border-b-0"
               style={{
-                borderColor: "rgba(77, 0, 0, 0.2)",
+                borderColor: "rgba(45, 26, 77,0.2)",
                 color: activeFile === file.name ? "var(--color-accent)" : "var(--color-secondary)",
-                backgroundColor: activeFile === file.name ? "rgba(204, 0, 0, 0.06)" : "transparent",
+                backgroundColor: activeFile === file.name ? "rgba(123, 79, 191,0.06)" : "transparent",
                 borderLeft: activeFile === file.name ? "2px solid var(--color-primary)" : "2px solid transparent",
               }}
             >

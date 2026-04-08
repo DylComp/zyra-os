@@ -137,15 +137,15 @@ export default function Dashboard() {
             <div style={{
               width: 280, borderRadius: 8, overflow: "hidden",
               border: "1px solid var(--color-tertiary)",
-              boxShadow: "0 4px 24px rgba(204, 0, 0, 0.1)", flexShrink: 0,
+              boxShadow: "0 4px 24px rgba(123, 79, 191,0.1)", flexShrink: 0,
             }}>
-              <img src="/zyra.os.jpg" alt="ZyraOS" style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/mascot.png" alt="ZyraOS" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
 
             <div style={{ flex: 1, minWidth: 240 }}>
               <h1 style={{
                 fontFamily: "var(--font-serif)", fontSize: 28, fontWeight: 600,
-                color: "var(--color-primary)", textShadow: "0 0 24px rgba(204, 0, 0, 0.3)",
+                color: "var(--color-primary)", textShadow: "0 0 24px rgba(123, 79, 191,0.3)",
                 margin: "0 0 12px", letterSpacing: "1px",
               }}>
                 ZyraOS
@@ -163,10 +163,10 @@ export default function Dashboard() {
                 fontFamily: "var(--font-mono)", color: "var(--color-primary)",
                 border: "1px solid var(--color-primary)", borderRadius: 6,
                 textDecoration: "none", transition: "all 0.15s ease",
-                backgroundColor: "rgba(204, 0, 0, 0.05)",
+                backgroundColor: "rgba(123, 79, 191,0.05)",
               }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(204, 0, 0, 0.15)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(204, 0, 0, 0.2)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(204, 0, 0, 0.05)"; e.currentTarget.style.boxShadow = "none"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(123, 79, 191,0.15)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(123, 79, 191,0.2)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(123, 79, 191,0.05)"; e.currentTarget.style.boxShadow = "none"; }}
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                   <path d="M8 12l-4-4h2.5V2h3v6H12L8 12zM2 14h12v-1.5H2V14z"/>
@@ -203,7 +203,7 @@ export default function Dashboard() {
                 {(tab.count ?? 0) > 0 && (
                   <span style={{
                     fontSize: 10, padding: "1px 6px", borderRadius: 999,
-                    backgroundColor: "rgba(204, 0, 0, 0.15)",
+                    backgroundColor: "rgba(123, 79, 191,0.15)",
                     color: isActive ? "var(--color-accent)" : "var(--color-secondary)",
                   }}>{tab.count}</span>
                 )}

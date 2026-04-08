@@ -9,7 +9,7 @@ export default function AboutPage() {
       <header
         className="fixed top-0 left-0 right-0 z-50 h-[48px] flex items-center px-4 border-b"
         style={{
-          background: "rgba(0, 0, 0, 0.7)",
+          background: "rgba(8, 0, 26, 0.85)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           borderColor: "var(--color-tertiary)",
@@ -67,7 +67,7 @@ export default function AboutPage() {
 
           <div
             className="px-6 md:px-12 py-8 border-t text-center"
-            style={{ borderColor: "rgba(77, 0, 0, 0.3)" }}
+            style={{ borderColor: "rgba(45, 26, 77,0.3)" }}
           >
           </div>
         </div>

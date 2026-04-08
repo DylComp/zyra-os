@@ -30,7 +30,7 @@ export default function CodeViewer({ code, language, filename }: CodeViewerProps
           <span>{filename}</span>
           {language && (
             <span className="px-1.5 py-0.5 rounded text-[10px]"
-              style={{ backgroundColor: "rgba(204, 0, 0, 0.1)", color: "var(--color-secondary)" }}>
+              style={{ backgroundColor: "rgba(123, 79, 191,0.1)", color: "var(--color-secondary)" }}>
               {language}
             </span>
           )}
@@ -43,7 +43,7 @@ export default function CodeViewer({ code, language, filename }: CodeViewerProps
         {lines.map((line, i) => (
           <div
             key={i}
-            className="flex transition-fast hover:bg-[rgba(204,0,0,0.04)]"
+            className="flex transition-fast hover:bg-[rgba(123,79,191,0.04)]"
             style={{ minHeight: "20px" }}
           >
             <span

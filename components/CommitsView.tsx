@@ -3,10 +3,10 @@
 import type { Commit } from "@/types";
 
 const AGENT_COLORS: Record<string, string> = {
-  Yami: "#ff1a1a",
-  Akira: "#cc0000",
-  Rei: "#990000",
-  Kira: "#660000",
+  Yami: "#a366ff",
+  Akira: "#7b4fbf",
+  Rei: "#5b2d99",
+  Kira: "#3d1a66",
 };
 
 interface CommitsViewProps {

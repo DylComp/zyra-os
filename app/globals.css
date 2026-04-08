@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #000000;
-  --bg-secondary: #0a0000;
-  --bg-tertiary: #1a0000;
-  --color-primary: #cc0000;
-  --color-secondary: #800000;
-  --color-tertiary: #4d0000;
-  --color-dim: #330000;
-  --color-accent: #ff1a1a;
-  --color-success: #8b0000;
-  --color-warning: #cc4400;
-  --color-danger: #ff0000;
+  --bg-primary: #08001a;
+  --bg-secondary: #0d0024;
+  --bg-tertiary: #1a0033;
+  --color-primary: #7b4fbf;
+  --color-secondary: #4a2d80;
+  --color-tertiary: #2d1a4d;
+  --color-dim: #1f1133;
+  --color-accent: #a366ff;
+  --color-success: #5b2d99;
+  --color-warning: #8844cc;
+  --color-danger: #cc44ff;
   --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
 }
 
@@ -35,7 +35,7 @@ body {
   font-size: 13px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Ctext x='1' y='16' font-size='16' font-family='serif' fill='%23cc0000'%3E%E9%AC%BC%3C/text%3E%3C/svg%3E") 10 9, crosshair;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Ctext x='1' y='16' font-size='16' font-family='serif' fill='%237b4fbf'%3E%E9%AC%BC%3C/text%3E%3C/svg%3E") 10 9, crosshair;
 }
 
 * {
@@ -44,7 +44,7 @@ body {
 
 a, button, [role="button"], input[type="submit"], select, summary,
 a *, button *, [role="button"] * {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Ctext x='1' y='16' font-size='16' font-family='serif' fill='%23ff1a1a'%3E%E9%AC%BC%3C/text%3E%3C/svg%3E") 10 9, pointer !important;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Ctext x='1' y='16' font-size='16' font-family='serif' fill='%23a366ff'%3E%E9%AC%BC%3C/text%3E%3C/svg%3E") 10 9, pointer !important;
 }
 
 ::selection {
@@ -82,15 +82,15 @@ a *, button *, [role="button"] * {
 }
 
 @keyframes flicker {
-  0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(204, 0, 0, 0.5); }
+  0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(123, 79, 191, 0.5); }
   5% { opacity: 0.4; text-shadow: none; }
-  6% { opacity: 1; text-shadow: 0 0 12px rgba(255, 26, 26, 0.6); }
-  40% { opacity: 1; text-shadow: 0 0 8px rgba(204, 0, 0, 0.5); }
-  42% { opacity: 0.6; text-shadow: 0 0 4px rgba(204, 0, 0, 0.3); }
-  43% { opacity: 1; text-shadow: 0 0 16px rgba(255, 26, 26, 0.7); }
-  80% { opacity: 1; text-shadow: 0 0 8px rgba(204, 0, 0, 0.5); }
+  6% { opacity: 1; text-shadow: 0 0 12px rgba(163, 102, 255, 0.6); }
+  40% { opacity: 1; text-shadow: 0 0 8px rgba(123, 79, 191, 0.5); }
+  42% { opacity: 0.6; text-shadow: 0 0 4px rgba(123, 79, 191, 0.3); }
+  43% { opacity: 1; text-shadow: 0 0 16px rgba(163, 102, 255, 0.7); }
+  80% { opacity: 1; text-shadow: 0 0 8px rgba(123, 79, 191, 0.5); }
   83% { opacity: 0.3; text-shadow: none; }
-  84% { opacity: 1; text-shadow: 0 0 10px rgba(204, 0, 0, 0.6); }
+  84% { opacity: 1; text-shadow: 0 0 10px rgba(123, 79, 191, 0.6); }
 }
 
 @keyframes fadeIn {
@@ -99,11 +99,11 @@ a *, button *, [role="button"] * {
 }
 
 .glow-text {
-  text-shadow: 0 0 12px rgba(204, 0, 0, 0.4);
+  text-shadow: 0 0 12px rgba(123, 79, 191,0.4);
 }
 
 .glow-text-strong {
-  text-shadow: 0 0 16px rgba(204, 0, 0, 0.3);
+  text-shadow: 0 0 16px rgba(123, 79, 191,0.3);
 }
 
 .transition-base {

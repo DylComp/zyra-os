@@ -14,7 +14,7 @@ function Section({ title, children, last }: SectionProps) {
     <div
       className="py-12 px-6 md:px-12"
       style={{
-        borderBottom: last ? "none" : "1px solid rgba(77, 0, 0, 0.3)",
+        borderBottom: last ? "none" : "1px solid rgba(45, 26, 77,0.3)",
       }}
     >
       {title && (

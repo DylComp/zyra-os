@@ -43,7 +43,7 @@ export default function FileTree({ nodes, selectedPath, onSelect, depth = 0 }: F
             style={{
               paddingLeft: `${16 + depth * 16}px`,
               color: selectedPath === node.path ? "var(--color-accent)" : "var(--color-secondary)",
-              backgroundColor: selectedPath === node.path ? "rgba(204, 0, 0, 0.06)" : "transparent",
+              backgroundColor: selectedPath === node.path ? "rgba(123, 79, 191,0.06)" : "transparent",
               borderLeft: selectedPath === node.path ? "2px solid var(--color-primary)" : "2px solid transparent",
             }}
           >

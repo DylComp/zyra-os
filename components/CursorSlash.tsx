@@ -96,7 +96,7 @@ export default function CursorSlash() {
         ctx.beginPath();
         ctx.moveTo(startX, startY);
         ctx.lineTo(endX, endY);
-        ctx.strokeStyle = `rgba(255, 26, 26, ${0.3 * fade})`;
+        ctx.strokeStyle = `rgba(163, 102, 255,${0.3 * fade})`;
         ctx.lineWidth = 4;
         ctx.lineCap = "round";
         ctx.stroke();
@@ -105,7 +105,7 @@ export default function CursorSlash() {
         ctx.beginPath();
         ctx.moveTo(startX, startY);
         ctx.lineTo(endX, endY);
-        ctx.strokeStyle = `rgba(204, 0, 0, ${0.8 * fade})`;
+        ctx.strokeStyle = `rgba(123, 79, 191,${0.8 * fade})`;
         ctx.lineWidth = 2;
         ctx.lineCap = "round";
         ctx.stroke();
@@ -114,7 +114,7 @@ export default function CursorSlash() {
         ctx.beginPath();
         ctx.moveTo(startX, startY);
         ctx.lineTo(endX, endY);
-        ctx.strokeStyle = `rgba(255, 100, 100, ${0.5 * fade})`;
+        ctx.strokeStyle = `rgba(180, 140, 255,${0.5 * fade})`;
         ctx.lineWidth = 0.5;
         ctx.lineCap = "round";
         ctx.stroke();
@@ -139,13 +139,13 @@ export default function CursorSlash() {
         // Particle glow
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 26, 26, ${alpha * 0.3})`;
+        ctx.fillStyle = `rgba(163, 102, 255,${alpha * 0.3})`;
         ctx.fill();
 
         // Particle core
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(204, 0, 0, ${alpha * 0.9})`;
+        ctx.fillStyle = `rgba(123, 79, 191,${alpha * 0.9})`;
         ctx.fill();
       }
 

@@ -7,7 +7,7 @@ export default function AboutHero() {
     <section className="relative w-full overflow-hidden border-b" style={{ borderColor: "var(--color-tertiary)" }}>
       <div className="relative w-full h-[400px] md:h-[500px]">
         <Image
-          src="/zyra.os.jpg"
+          src="/mascot.png"
           alt="ZyraOS"
           fill
           className="object-cover"
