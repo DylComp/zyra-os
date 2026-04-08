@@ -70,7 +70,7 @@ export default function AboutPage() {
             style={{ borderColor: "rgba(77, 0, 0, 0.3)" }}
           >
             <p className="text-[12px] font-mono mb-2" style={{ color: "var(--color-dim)" }}>
-              CA: Coming soon
+              CA: zyN6exbXaztTagwuf2wkdZaCCYEGxcBT2KQz3pj4vE3
             </p>
           </div>
         </div>

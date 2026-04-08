@@ -113,7 +113,7 @@ export default function Dashboard() {
           }}>
             <span style={{ fontSize: 12, color: "var(--color-secondary)", fontWeight: 500 }}>CA:</span>
             <span style={{ fontSize: 12, fontFamily: "var(--font-mono)", color: "var(--color-primary)", letterSpacing: "0.5px" }}>
-              Coming soon
+              zyN6exbXaztTagwuf2wkdZaCCYEGxcBT2KQz3pj4vE3
             </span>
           </div>
 
