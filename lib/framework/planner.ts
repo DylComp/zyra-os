@@ -27,7 +27,7 @@ export async function decompose(
   prompt: string
 ): Promise<TaskPlan> {
   const response = await client.messages.create({
-    model: "claude-sonnet-4-6-20250514",
+    model: "claude-sonnet-4-6",
     max_tokens: 4096,
     system: PLANNER_SYSTEM,
     messages: [
@@ -44,11 +44,18 @@ export async function decompose(
   try {
     parsed = JSON.parse(text);
   } catch {
-    const match = text.match(/```(?:json)?\s*([\s\S]*?)```/);
-    if (match) {
-      parsed = JSON.parse(match[1]);
+    // Try extracting from markdown fences
+    const fenceMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+    if (fenceMatch) {
+      parsed = JSON.parse(fenceMatch[1]);
     } else {
-      throw new Error("Failed to parse planner output as JSON");
+      // Try extracting the first JSON object from the text
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        parsed = JSON.parse(jsonMatch[0]);
+      } else {
+        throw new Error("Failed to parse planner output as JSON");
+      }
     }
   }
 

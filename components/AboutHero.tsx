@@ -12,7 +12,7 @@ export default function AboutHero() {
           fill
           className="object-cover"
           style={{ filter: "brightness(0.6)" }}
-          preload
+          priority
         />
 
         <div
@@ -37,7 +37,7 @@ export default function AboutHero() {
             className="mt-4 text-[14px] max-w-md text-center"
             style={{ color: "var(--color-secondary)" }}
           >
-            An orchestration framework for long-running, autonomous multi-agent workflows.
+            She builds while you watch. Autonomous agent framework for workflows that take days, not minutes.
           </p>
         </div>
       </div>

@@ -12,55 +12,89 @@ interface CodeViewProps {
 export default function CodeView({ files, selectedFile, onFileSelect }: CodeViewProps) {
   const flatFiles = flattenFiles(files);
 
-  return (
-    <div className="flex flex-col h-full">
-      <div
-        className="flex items-center px-4 py-2 border-b text-[12px]"
-        style={{
+  if (selectedFile?.content) {
+    return (
+      <div style={{ width: "100%", overflow: "hidden" }}>
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "8px 16px",
+          borderBottom: "1px solid var(--color-tertiary)",
           backgroundColor: "var(--bg-tertiary)",
-          borderColor: "var(--color-tertiary)",
-          color: "var(--color-secondary)",
-        }}
-      >
-        <span>zyraos-blockchain</span>
-        <span className="mx-2 opacity-30">/</span>
-        <span>{selectedFile?.path || "src"}</span>
+          fontSize: 12,
+        }}>
+          <button onClick={() => onFileSelect(undefined!)}
+            style={{ color: "var(--color-secondary)", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-mono)", fontSize: 12 }}>
+            root
+          </button>
+          <span style={{ margin: "0 8px", color: "var(--color-tertiary)" }}>/</span>
+          <span style={{ color: "var(--color-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+            {selectedFile.path}
+          </span>
+          <button onClick={() => onFileSelect(undefined!)}
+            style={{
+              marginLeft: "auto", padding: "2px 8px", fontSize: 11, borderRadius: 4,
+              border: "1px solid var(--color-tertiary)", color: "var(--color-secondary)",
+              background: "none", cursor: "pointer", fontFamily: "var(--font-mono)",
+            }}>
+            Back
+          </button>
+        </div>
+        <div style={{ padding: 16 }}>
+          <CodeViewer code={selectedFile.content} language={selectedFile.language} filename={selectedFile.name} />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ width: "100%", overflow: "hidden" }}>
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        padding: "8px 16px",
+        borderBottom: "1px solid var(--color-tertiary)",
+        backgroundColor: "var(--bg-tertiary)",
+        fontSize: 12,
+      }}>
+        <span style={{ color: "var(--color-secondary)" }}>zyraos-blockchain</span>
+        <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--color-secondary)" }}>
+          {flatFiles.length} files
+        </span>
       </div>
 
-      {selectedFile?.content ? (
-        <div className="flex-1 overflow-auto p-4">
-          <CodeViewer
-            code={selectedFile.content}
-            language={selectedFile.language}
-            filename={selectedFile.path}
-          />
-        </div>
-      ) : (
-        <div className="flex-1 overflow-auto">
-          {flatFiles.map((file) => (
-            <button
-              key={file.path}
-              onClick={() => onFileSelect(file)}
-              className="w-full flex items-center px-4 py-2 border-b text-left transition-fast"
-              style={{
-                borderColor: "rgba(77, 0, 0, 0.3)",
-                color: "var(--color-primary)",
-              }}
-            >
-              <span className="text-[13px]">{file.name}</span>
-              <span className="ml-auto text-[11px]" style={{ color: "var(--color-dim)" }}>
-                {file.language || "text"}
-              </span>
-            </button>
-          ))}
-
-          {flatFiles.length === 0 && (
-            <div className="flex items-center justify-center h-48 text-[13px]" style={{ color: "var(--color-dim)" }}>
-              Waiting for agents to generate files...
-            </div>
-          )}
-        </div>
-      )}
+      <div>
+        {flatFiles.map((file, i) => (
+          <div
+            key={`${file.path}-${i}`}
+            onClick={() => onFileSelect(file)}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              padding: "10px 16px",
+              borderBottom: "1px solid var(--color-tertiary)",
+              cursor: "pointer",
+              overflow: "hidden",
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
+              <path d="M3 1.5C3 0.67 3.67 0 4.5 0H9.5L13 3.5V14.5C13 15.33 12.33 16 11.5 16H4.5C3.67 16 3 15.33 3 14.5V1.5Z" fill="var(--color-tertiary)" />
+            </svg>
+            <span title={file.path} style={{ fontSize: 13, color: "var(--color-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>
+              {file.path}
+            </span>
+            <span style={{ fontSize: 11, flexShrink: 0, color: "var(--color-secondary)" }}>
+              {file.language || "text"}
+            </span>
+          </div>
+        ))}
+        {flatFiles.length === 0 && (
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 192, fontSize: 13, color: "var(--color-secondary)" }}>
+            Waiting for agents to generate files...
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -68,12 +102,8 @@ export default function CodeView({ files, selectedFile, onFileSelect }: CodeView
 function flattenFiles(nodes: FileNode[]): FileNode[] {
   const result: FileNode[] = [];
   for (const node of nodes) {
-    if (node.type === "file") {
-      result.push(node);
-    }
-    if (node.children) {
-      result.push(...flattenFiles(node.children));
-    }
+    if (node.type === "file") result.push(node);
+    if (node.children) result.push(...flattenFiles(node.children));
   }
   return result;
 }

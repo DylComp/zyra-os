@@ -7,17 +7,17 @@ interface RouteResult {
 }
 
 const AGENTS = [
-  { name: "Yami", role: "planner", models: ["claude-opus-4-6-20250514"] },
-  { name: "Akira", role: "architect", models: ["claude-opus-4-6-20250514", "claude-sonnet-4-6-20250514"] },
-  { name: "Rei", role: "builder", models: ["claude-sonnet-4-6-20250514", "claude-haiku-4-5-20251001"] },
-  { name: "Kira", role: "tester", models: ["claude-sonnet-4-6-20250514", "claude-haiku-4-5-20251001"] },
+  { name: "Yami", role: "planner", models: ["claude-opus-4-6"] },
+  { name: "Akira", role: "architect", models: ["claude-opus-4-6", "claude-sonnet-4-6"] },
+  { name: "Rei", role: "builder", models: ["claude-sonnet-4-6", "claude-haiku-4-5"] },
+  { name: "Kira", role: "tester", models: ["claude-sonnet-4-6", "claude-haiku-4-5"] },
 ];
 
 const COMPLEXITY_MODELS: Record<string, string> = {
-  critical: "claude-opus-4-6-20250514",
-  high: "claude-sonnet-4-6-20250514",
-  medium: "claude-sonnet-4-6-20250514",
-  low: "claude-haiku-4-5-20251001",
+  critical: "claude-opus-4-6",
+  high: "claude-sonnet-4-6",
+  medium: "claude-sonnet-4-6",
+  low: "claude-haiku-4-5",
 };
 
 function scoreComplexity(task: MicroTask): MicroTask["complexity"] {

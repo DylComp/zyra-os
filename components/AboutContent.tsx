@@ -53,7 +53,7 @@ export default function AboutContent() {
     <div>
       <Section>
         <p className="text-lg" style={{ color: "var(--color-primary)" }}>
-          An orchestration framework for long-running, autonomous multi-agent workflows.
+          She builds while you watch. Autonomous agent framework for workflows that take days, not minutes.
         </p>
       </Section>
 

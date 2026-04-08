@@ -14,44 +14,59 @@ interface MessageFeedProps {
   messages: AgentMessage[];
 }
 
+function formatTime(timestamp: string): string {
+  const d = new Date(timestamp);
+  const mins = Math.floor((Date.now() - d.getTime()) / 60000);
+  if (mins < 1) return "just now";
+  if (mins < 60) return `${mins}m ago`;
+  return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+}
+
 export default function MessageFeed({ messages }: MessageFeedProps) {
   return (
-    <div className="flex flex-col gap-3 p-4">
+    <div style={{ width: "100%", overflow: "hidden" }}>
       {messages.map((msg) => (
         <div
           key={msg.id}
-          className="rounded-lg border p-4"
           style={{
-            borderColor: "var(--color-tertiary)",
-            backgroundColor: "var(--bg-secondary)",
+            padding: "12px 16px",
+            borderBottom: "1px solid var(--color-tertiary)",
+            overflow: "hidden",
             animation: "fadeIn 0.3s ease",
           }}
         >
-          <div className="flex items-center gap-2 mb-2">
-            <span
-              className="w-2 h-2 rounded-full"
-              style={{ backgroundColor: AGENT_COLORS[msg.agent] || "var(--color-primary)" }}
-            />
-            <span
-              className="text-[13px] font-medium"
-              style={{ color: AGENT_COLORS[msg.agent] || "var(--color-primary)" }}
-            >
+          {/* Header */}
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+            <span style={{
+              width: 8, height: 8, borderRadius: "50%", flexShrink: 0,
+              backgroundColor: AGENT_COLORS[msg.agent] || "var(--color-primary)",
+            }} />
+            <span style={{ fontSize: 13, fontWeight: 500, color: AGENT_COLORS[msg.agent] || "var(--color-primary)" }}>
               {msg.agent}
             </span>
-            <span className="text-[11px]" style={{ color: "var(--color-dim)" }}>
+            <span style={{ fontSize: 11, color: "var(--color-secondary)" }}>
               Turn {msg.turn}
             </span>
-            <span className="text-[11px] ml-auto" style={{ color: "var(--color-dim)" }}>
-              {new Date(msg.timestamp).toLocaleTimeString()}
+            <span style={{ fontSize: 11, marginLeft: "auto", flexShrink: 0, color: "var(--color-secondary)" }}>
+              {formatTime(msg.timestamp)}
             </span>
           </div>
 
-          <div className="text-[14px] leading-relaxed whitespace-pre-wrap" style={{ color: "var(--color-primary)" }}>
+          {/* Content — force wrap */}
+          <div style={{
+            fontSize: 13,
+            lineHeight: 1.6,
+            color: "var(--color-primary)",
+            wordBreak: "break-word",
+            overflowWrap: "break-word",
+            whiteSpace: "pre-wrap",
+            overflow: "hidden",
+          }}>
             {msg.content}
           </div>
 
           {msg.codeBlock && (
-            <div className="mt-3">
+            <div style={{ marginTop: 8 }}>
               <CodeViewer
                 code={msg.codeBlock.code}
                 language={msg.codeBlock.language}

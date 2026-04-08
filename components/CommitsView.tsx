@@ -26,52 +26,61 @@ function timeAgo(timestamp: string): string {
 
 export default function CommitsView({ commits }: CommitsViewProps) {
   return (
-    <div className="flex flex-col">
+    <div style={{ width: "100%", overflow: "hidden" }}>
       {commits.map((commit) => (
         <div
           key={commit.sha}
-          className="flex items-start gap-3 px-4 py-3 border-b transition-fast"
           style={{
-            borderColor: "rgba(77, 0, 0, 0.3)",
+            display: "flex",
+            alignItems: "flex-start",
+            gap: 12,
+            padding: "12px 16px",
+            borderBottom: "1px solid var(--color-tertiary)",
+            overflow: "hidden",
           }}
         >
-          <div
-            className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5"
-            style={{
-              backgroundColor: AGENT_COLORS[commit.agent] || "var(--color-tertiary)",
-              color: "var(--bg-primary)",
-            }}
-          >
+          <div style={{
+            width: 24, height: 24, borderRadius: "50%",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: 10, fontWeight: 700, flexShrink: 0, marginTop: 2,
+            backgroundColor: AGENT_COLORS[commit.agent] || "var(--color-tertiary)",
+            color: "var(--bg-primary)",
+          }}>
             {commit.agent[0]}
           </div>
 
-          <div className="flex-1 min-w-0">
-            <div className="text-[13px] font-medium" style={{ color: "var(--color-primary)" }}>
+          <div style={{ flex: 1, overflow: "hidden" }}>
+            <div style={{
+              fontSize: 13, fontWeight: 500, color: "var(--color-primary)",
+              overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+            }}>
               {commit.message}
             </div>
             {commit.description && (
-              <div className="text-[12px] mt-0.5" style={{ color: "var(--color-secondary)" }}>
+              <div style={{
+                fontSize: 12, marginTop: 2, color: "var(--color-secondary)",
+                overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+              }}>
                 {commit.description}
               </div>
             )}
-            <div className="flex items-center gap-2 mt-1">
-              <span className="text-[11px] font-mono" style={{ color: "var(--color-dim)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 4 }}>
+              <span style={{ fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--color-secondary)" }}>
                 {commit.sha}
               </span>
-              <span className="text-[11px]" style={{ color: "var(--color-dim)" }}>
+              <span style={{ fontSize: 11, color: "var(--color-secondary)" }}>
                 {commit.agent}
               </span>
             </div>
           </div>
 
-          <span className="text-[11px] shrink-0" style={{ color: "var(--color-dim)" }}>
+          <span style={{ fontSize: 11, flexShrink: 0, color: "var(--color-secondary)" }}>
             {timeAgo(commit.timestamp)}
           </span>
         </div>
       ))}
-
       {commits.length === 0 && (
-        <div className="flex items-center justify-center h-48 text-[13px]" style={{ color: "var(--color-dim)" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 192, fontSize: 13, color: "var(--color-secondary)" }}>
           No commits yet...
         </div>
       )}

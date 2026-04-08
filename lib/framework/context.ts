@@ -8,9 +8,9 @@ interface ContextWindow {
 }
 
 const TOKEN_LIMITS: Record<string, number> = {
-  "claude-haiku-4-5-20251001": 8192,
-  "claude-sonnet-4-6-20250514": 16384,
-  "claude-opus-4-6-20250514": 32768,
+  "claude-haiku-4-5": 8192,
+  "claude-sonnet-4-6": 16384,
+  "claude-opus-4-6": 32768,
 };
 
 function estimateTokens(text: string): number {

@@ -41,7 +41,7 @@ export async function planProject(
     for (const task of ready) {
       task.status = "in_progress";
       const agent = task.assignedAgent || "Rei";
-      const model = task.assignedModel || "claude-sonnet-4-6-20250514";
+      const model = task.assignedModel || "claude-sonnet-4-6";
 
       options.onTaskStart?.(task, agent, model);
       options.onMessage?.(agent, `Starting task: ${task.title}`);

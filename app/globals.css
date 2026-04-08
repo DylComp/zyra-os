@@ -21,8 +21,11 @@
   padding: 0;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 body {
@@ -68,6 +71,18 @@ body {
   }
 }
 
+@keyframes flicker {
+  0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(204, 0, 0, 0.5); }
+  5% { opacity: 0.4; text-shadow: none; }
+  6% { opacity: 1; text-shadow: 0 0 12px rgba(255, 26, 26, 0.6); }
+  40% { opacity: 1; text-shadow: 0 0 8px rgba(204, 0, 0, 0.5); }
+  42% { opacity: 0.6; text-shadow: 0 0 4px rgba(204, 0, 0, 0.3); }
+  43% { opacity: 1; text-shadow: 0 0 16px rgba(255, 26, 26, 0.7); }
+  80% { opacity: 1; text-shadow: 0 0 8px rgba(204, 0, 0, 0.5); }
+  83% { opacity: 0.3; text-shadow: none; }
+  84% { opacity: 1; text-shadow: 0 0 10px rgba(204, 0, 0, 0.6); }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
@@ -89,7 +104,6 @@ body {
   transition: all 0.1s ease;
 }
 
-a:hover,
 button:hover {
   opacity: 0.85;
 }
@@ -102,4 +116,11 @@ input:focus {
 
 a.transition-base:hover {
   color: var(--color-accent) !important;
+}
+
+/* Contain all content */
+main, .content-area {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }

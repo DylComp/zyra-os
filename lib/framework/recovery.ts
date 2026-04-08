@@ -10,8 +10,8 @@ const DEFAULT_CONFIG: RetryConfig = {
   baseDelay: 1000,
   maxDelay: 30000,
   fallbackModels: [
-    "claude-sonnet-4-6-20250514",
-    "claude-haiku-4-5-20251001",
+    "claude-sonnet-4-6",
+    "claude-haiku-4-5",
   ],
 };
 

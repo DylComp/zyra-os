@@ -35,8 +35,8 @@ function FileIcon({ type }: { type: "file" | "directory" }) {
 export default function FileTree({ nodes, selectedPath, onSelect, depth = 0 }: FileTreeProps) {
   return (
     <div>
-      {nodes.map((node) => (
-        <div key={node.path}>
+      {nodes.map((node, i) => (
+        <div key={`${depth}-${i}-${node.name}`}>
           <button
             onClick={() => onSelect(node)}
             className="w-full flex items-center gap-2 py-1 text-[13px] transition-fast text-left"

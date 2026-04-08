@@ -12,7 +12,7 @@ const notoSerifJP = Noto_Serif_JP({
 export const metadata: Metadata = {
   title: "ZyraOS",
   description:
-    "An orchestration framework for long-running, autonomous multi-agent workflows.",
+    "She builds while you watch. Autonomous agent framework for workflows that take days, not minutes.",
 };
 
 export default function RootLayout({
