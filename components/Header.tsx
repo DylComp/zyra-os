@@ -27,6 +27,7 @@ export default function Header({ activeTab, onTabChange, counts }: HeaderProps) 
       }}
     >
       {/* Logo */}
+      <span className="text-[11px] opacity-70" style={{ color: "var(--color-primary)" }}>𝖥</span>
       <Link
         href="/"
         className="text-[15px] font-semibold tracking-wide no-underline shrink-0"
