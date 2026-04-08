@@ -27,7 +27,7 @@ function timeAgo(timestamp: string): string {
 export default function CommitsView({ commits }: CommitsViewProps) {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      {commits.map((commit) => (
+      {[...commits].reverse().map((commit) => (
         <div
           key={commit.sha}
           style={{

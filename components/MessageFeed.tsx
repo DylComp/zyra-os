@@ -25,7 +25,7 @@ function formatTime(timestamp: string): string {
 export default function MessageFeed({ messages }: MessageFeedProps) {
   return (
     <div style={{ width: "100%", overflow: "hidden" }}>
-      {messages.map((msg) => (
+      {[...messages].reverse().map((msg) => (
         <div
           key={msg.id}
           style={{
