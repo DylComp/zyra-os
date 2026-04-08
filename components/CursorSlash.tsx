@@ -48,19 +48,19 @@ export default function CursorSlash() {
         y: e.clientY,
         angle,
         progress: 0,
-        length: 60 + Math.random() * 30,
+        length: 35 + Math.random() * 20,
       });
 
-      for (let i = 0; i < 4; i++) {
-        const spread = (Math.random() - 0.5) * 1.5;
+      for (let i = 0; i < 3; i++) {
+        const spread = (Math.random() - 0.5) * 1.2;
         particlesRef.current.push({
           x: e.clientX,
           y: e.clientY,
-          vx: Math.cos(angle + spread) * (2 + Math.random() * 3),
-          vy: Math.sin(angle + spread) * (2 + Math.random() * 3),
+          vx: Math.cos(angle + spread) * (1.5 + Math.random() * 2),
+          vy: Math.sin(angle + spread) * (1.5 + Math.random() * 2),
           life: 1,
           maxLife: 1,
-          size: 1 + Math.random() * 2,
+          size: 0.8 + Math.random() * 1.5,
         });
       }
 
@@ -97,7 +97,7 @@ export default function CursorSlash() {
         ctx.moveTo(startX, startY);
         ctx.lineTo(endX, endY);
         ctx.strokeStyle = `rgba(255, 26, 26, ${0.3 * fade})`;
-        ctx.lineWidth = 6;
+        ctx.lineWidth = 4;
         ctx.lineCap = "round";
         ctx.stroke();
 
