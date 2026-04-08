@@ -35,11 +35,16 @@ body {
   font-size: 13px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Ctext x='1' y='16' font-size='16' font-family='serif' fill='%23cc0000'%3E%E9%AC%BC%3C/text%3E%3C/svg%3E") 10 9, auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Ctext x='1' y='16' font-size='16' font-family='serif' fill='%23cc0000'%3E%E9%AC%BC%3C/text%3E%3C/svg%3E") 10 9, crosshair;
 }
 
-a, button, [role="button"], input[type="submit"], select, summary {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Ctext x='1' y='16' font-size='16' font-family='serif' fill='%23ff1a1a'%3E%E9%AC%BC%3C/text%3E%3C/svg%3E") 10 9, pointer;
+* {
+  cursor: inherit;
+}
+
+a, button, [role="button"], input[type="submit"], select, summary,
+a *, button *, [role="button"] * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Ctext x='1' y='16' font-size='16' font-family='serif' fill='%23ff1a1a'%3E%E9%AC%BC%3C/text%3E%3C/svg%3E") 10 9, pointer !important;
 }
 
 ::selection {

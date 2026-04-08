@@ -24,7 +24,7 @@ export default function CodeView({ files, selectedFile, onFileSelect }: CodeView
           fontSize: 12,
         }}>
           <button onClick={() => onFileSelect(undefined!)}
-            style={{ color: "var(--color-secondary)", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-mono)", fontSize: 12 }}>
+            style={{ color: "var(--color-secondary)", background: "none", border: "none", fontFamily: "var(--font-mono)", fontSize: 12 }}>
             root
           </button>
           <span style={{ margin: "0 8px", color: "var(--color-tertiary)" }}>/</span>
@@ -35,7 +35,7 @@ export default function CodeView({ files, selectedFile, onFileSelect }: CodeView
             style={{
               marginLeft: "auto", padding: "2px 8px", fontSize: 11, borderRadius: 4,
               border: "1px solid var(--color-tertiary)", color: "var(--color-secondary)",
-              background: "none", cursor: "pointer", fontFamily: "var(--font-mono)",
+              background: "none", fontFamily: "var(--font-mono)",
             }}>
             Back
           </button>
@@ -74,7 +74,6 @@ export default function CodeView({ files, selectedFile, onFileSelect }: CodeView
               gap: 12,
               padding: "10px 16px",
               borderBottom: "1px solid var(--color-tertiary)",
-              cursor: "pointer",
               overflow: "hidden",
             }}
           >

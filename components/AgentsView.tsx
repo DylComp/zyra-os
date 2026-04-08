@@ -43,7 +43,7 @@ export default function AgentsView({ messages }: AgentsViewProps) {
             fontWeight: 500,
             borderRadius: 4,
             border: "none",
-            cursor: "pointer",
+
             fontFamily: "var(--font-mono)",
             color: activeAgent === null ? "var(--color-accent)" : "var(--color-secondary)",
             backgroundColor: activeAgent === null ? "rgba(204, 0, 0, 0.1)" : "transparent",
@@ -69,7 +69,7 @@ export default function AgentsView({ messages }: AgentsViewProps) {
                 fontWeight: 500,
                 borderRadius: 4,
                 border: "none",
-                cursor: "pointer",
+    
                 fontFamily: "var(--font-mono)",
                 color: isActive ? "var(--color-accent)" : "var(--color-secondary)",
                 backgroundColor: isActive ? "rgba(204, 0, 0, 0.1)" : "transparent",

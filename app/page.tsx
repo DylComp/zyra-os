@@ -180,7 +180,6 @@ export default function Dashboard() {
                   padding: "12px 16px", fontSize: 13, fontWeight: 500,
                   fontFamily: "var(--font-mono)", border: "none",
                   borderBottom: isActive ? "2px solid var(--color-primary)" : "2px solid transparent",
-                  cursor: "pointer",
                   color: isActive ? "var(--color-accent)" : "var(--color-secondary)",
                   backgroundColor: "transparent",
                 }}>
