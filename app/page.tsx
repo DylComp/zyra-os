@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import type { TabName, AgentMessage, FileNode, Commit } from "@/types";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
@@ -18,11 +18,12 @@ export default function Dashboard() {
   const [commits, setCommits] = useState<Commit[]>([]);
   const [selectedFile, setSelectedFile] = useState<FileNode | undefined>();
   const [status, setStatus] = useState<"idle" | "running" | "completed" | "error">("idle");
-  const startedRef = useRef(false);
 
   useEffect(() => {
-    if (startedRef.current) return;
-    startedRef.current = true;
+    // Reset state on every page load
+    setMessages([]);
+    setFiles([]);
+    setCommits([]);
     setStatus("running");
 
     // Load all files and commits immediately
@@ -33,10 +34,12 @@ export default function Dashboard() {
     })));
 
     // Stream messages in with delays
+    let cancelled = false;
     let i = 0;
     const baseTime = Date.now();
 
     function nextMessage() {
+      if (cancelled) return;
       if (i >= DEMO_MESSAGES.length) {
         setStatus("completed");
         return;
@@ -62,6 +65,8 @@ export default function Dashboard() {
 
     // Start immediately
     nextMessage();
+
+    return () => { cancelled = true; };
   }, []);
 
   const flatFileCount = countFiles(files);
