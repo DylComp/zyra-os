@@ -72,15 +72,6 @@ export default function AboutPage() {
             <p className="text-[12px] font-mono mb-2" style={{ color: "var(--color-dim)" }}>
               CA: Coming soon
             </p>
-            <a
-              href="https://x.com/zyraosagent"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[13px] transition-base no-underline"
-              style={{ color: "var(--color-secondary)" }}
-            >
-              @zyraosagent
-            </a>
           </div>
         </div>
       </main>

@@ -88,10 +88,6 @@ export default function Dashboard() {
           {flatFileCount > 0 && (
             <span style={{ fontSize: 11, color: "var(--color-secondary)" }}>{flatFileCount} files</span>
           )}
-          <a href="https://x.com/zyraosagent" target="_blank" rel="noopener noreferrer"
-            style={{ fontSize: 12, color: "var(--color-secondary)", textDecoration: "none" }}>
-            @zyraosagent
-          </a>
         </div>
       </div>
 
