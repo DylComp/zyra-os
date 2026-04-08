@@ -26,40 +26,62 @@ export default function Dashboard() {
     setCommits([]);
     setStatus("running");
 
-    // Load files and commits immediately with fresh timestamps
+    // Load files immediately
     setFiles(DEMO_FILES);
-    setCommits(DEMO_COMMITS.map((c, i) => ({
-      ...c,
-      timestamp: new Date(Date.now() - (DEMO_COMMITS.length - i) * 60000).toISOString(),
-    })));
 
-    // Stream messages in with delays
+    // Stream messages and commits together
     let cancelled = false;
-    let i = 0;
+    let msgIdx = 0;
+    let commitIdx = 0;
     const baseTime = Date.now();
+
+    // Every ~2 messages, drop a batch of commits (to get through 301 commits across 156 messages)
+    const commitsPerMessage = Math.ceil(DEMO_COMMITS.length / DEMO_MESSAGES.length);
 
     function nextMessage() {
       if (cancelled) return;
-      if (i >= DEMO_MESSAGES.length) {
+      if (msgIdx >= DEMO_MESSAGES.length) {
+        // Flush remaining commits
+        if (commitIdx < DEMO_COMMITS.length) {
+          const remaining = DEMO_COMMITS.slice(commitIdx).map((c) => ({
+            ...c,
+            timestamp: new Date(Date.now()).toISOString(),
+          }));
+          setCommits((prev) => [...prev, ...remaining]);
+        }
         setStatus("completed");
         return;
       }
 
-      const template = DEMO_MESSAGES[i];
+      const template = DEMO_MESSAGES[msgIdx];
+      const now = new Date(baseTime + msgIdx * 3000).toISOString();
       const msg: AgentMessage = {
-        id: `msg-${i + 1}`,
+        id: `msg-${msgIdx + 1}`,
         agent: template.agent,
         turn: template.turn,
-        timestamp: new Date(baseTime + i * 3000).toISOString(),
+        timestamp: now,
         content: template.content,
         codeBlock: template.codeBlock,
       };
 
       setMessages((prev) => [...prev, msg]);
-      i++;
+
+      // Drop linked commits from the same agent or next in queue
+      const batchSize = commitsPerMessage + (msgIdx % 3 === 0 ? 1 : 0);
+      const end = Math.min(commitIdx + batchSize, DEMO_COMMITS.length);
+      if (commitIdx < end) {
+        const batch = DEMO_COMMITS.slice(commitIdx, end).map((c) => ({
+          ...c,
+          timestamp: now,
+        }));
+        setCommits((prev) => [...prev, ...batch]);
+        commitIdx = end;
+      }
+
+      msgIdx++;
 
       // Fast delays to feel snappy
-      const delay = i < 3 ? 300 : i < 10 ? 500 : 700;
+      const delay = msgIdx < 3 ? 300 : msgIdx < 10 ? 500 : 700;
       setTimeout(nextMessage, delay + Math.random() * 300);
     }
 
