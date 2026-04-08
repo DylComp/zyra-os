@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Serif_JP } from "next/font/google";
+import CursorSlash from "@/components/CursorSlash";
 import "./globals.css";
 
 const notoSerifJP = Noto_Serif_JP({
@@ -26,7 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={notoSerifJP.variable}>
-      <body>{children}</body>
+      <body>
+        <CursorSlash />
+        {children}
+      </body>
     </html>
   );
 }
