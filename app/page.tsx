@@ -132,6 +132,18 @@ export default function Dashboard() {
       }}>
         {/* Hero section */}
         <div style={{ borderBottom: "1px solid var(--color-tertiary)", padding: "24px 24px 20px" }}>
+          {/* CA Banner */}
+          <div style={{
+            padding: "10px 16px", borderRadius: 6,
+            border: "1px solid var(--color-tertiary)", backgroundColor: "var(--bg-secondary)",
+            marginBottom: 20, display: "flex", alignItems: "center", gap: 8,
+          }}>
+            <span style={{ fontSize: 12, color: "var(--color-secondary)", fontWeight: 500 }}>CA:</span>
+            <span style={{ fontSize: 12, fontFamily: "var(--font-mono)", color: "var(--color-primary)", letterSpacing: "0.5px" }}>
+              3o7qemTcEya4xg3m3C1SnztSrDWQ335HVHoapgM8pump
+            </span>
+          </div>
+
           {/* Mascot + Info */}
           <div style={{ display: "flex", gap: 24, alignItems: "flex-start", flexWrap: "wrap" }}>
             <div style={{

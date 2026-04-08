@@ -69,6 +69,9 @@ export default function AboutPage() {
             className="px-6 md:px-12 py-8 border-t text-center"
             style={{ borderColor: "rgba(45, 26, 77,0.3)" }}
           >
+            <p className="text-[12px] font-mono mb-2" style={{ color: "var(--color-dim)" }}>
+              CA: 3o7qemTcEya4xg3m3C1SnztSrDWQ335HVHoapgM8pump
+            </p>
           </div>
         </div>
       </main>
