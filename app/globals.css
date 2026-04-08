@@ -1,26 +1,105 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #000000;
+  --bg-secondary: #0a0000;
+  --bg-tertiary: #1a0000;
+  --color-primary: #cc0000;
+  --color-secondary: #800000;
+  --color-tertiary: #4d0000;
+  --color-dim: #330000;
+  --color-accent: #ff1a1a;
+  --color-success: #8b0000;
+  --color-warning: #cc4400;
+  --color-danger: #ff0000;
+  --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-tertiary);
+  color: var(--color-accent);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-tertiary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 6px var(--color-primary);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 12px var(--color-accent);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.glow-text {
+  text-shadow: 0 0 12px rgba(204, 0, 0, 0.4);
+}
+
+.glow-text-strong {
+  text-shadow: 0 0 16px rgba(204, 0, 0, 0.3);
+}
+
+.transition-base {
+  transition: all 0.15s ease;
+}
+
+.transition-fast {
+  transition: all 0.1s ease;
+}
+
+a:hover,
+button:hover {
+  opacity: 0.85;
+}
+
+input:focus {
+  border-color: var(--color-primary) !important;
+  outline: none;
+  box-shadow: 0 0 0 1px var(--color-tertiary);
+}
+
+a.transition-base:hover {
+  color: var(--color-accent) !important;
 }
